@@ -5,7 +5,7 @@ const initialUserInput = {
   "expected-return": 7,
   duration: 10,
 };
-function UserInput() {
+function UserInput(props) {
   const [userInput, setUserInput] = useState({
     "current-savings": 10000,
     "yearly-contribution": 1200,
@@ -14,6 +14,7 @@ function UserInput() {
   });
   function submitHandler(event) {
     event.preventDefault();
+    props.onCalculate(userInput);
   }
   function resetHandler() {
     setUserInput(initialUserInput);
